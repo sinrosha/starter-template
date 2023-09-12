@@ -14,7 +14,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "prebuild": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx)\"",
+    "format:stylelint": "stylelint '**/*.scss' --fix",
+    "format:eslint": "eslint -c .eslintrc.json --ext .ts 'src/**/*.{ts,tsx}' --fix",
+    "pre-commit": "bun run format && bun run format:stylelint && bun run format:eslint",
+    "lint:eslint": "eslint ./src/",
+    "lint:prettier": "prettier 'src/**/*.{json,md,htm,html,yml,yaml,js,jsx,ts,tsx}' --check",
+    "lint:stylelint": "stylelint '**/*.{scss,css,sass}'",
+    "lint": "bun run lint:stylelint && bun run lint:eslint && bun run lint:prettier"
   },
   "dependencies": {
     "next": "13.4.19",
@@ -29,10 +37,17 @@
     "@typescript-eslint/parser": "^6.7.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.0.3",
+    "sass": "^1.66.1",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-scss": "^5.1.0",
     "typescript": "5.2.2"
   }
 }
