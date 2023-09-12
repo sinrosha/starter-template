@@ -10,10 +10,11 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import", "jsx-a11y"],
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "prettier"],
   "root": true,
   "globals": {
     "document": true,
